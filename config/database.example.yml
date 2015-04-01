@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  encoding: unicode
+  pool: 5
+  host: localhost
+
+development:
+  <<: *default
+  database: stocknotes_development
+
+test:
+  <<: *default
+  database: stocknotes_test
+
+production:
+  <<: *default
+  database: stocknotes_production
+  username: stocknotes
+  password: <%= ENV['STOCKNOTES_DATABASE_PASSWORD'] %>
