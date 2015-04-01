@@ -17,3 +17,5 @@
 
 # Ignoring local configs
 config/database.yml
+
+/.env
