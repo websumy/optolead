@@ -7,14 +7,14 @@ default: &default
 
 development:
   <<: *default
-  database: stocknotes_development
+  database: optolead_development
 
 test:
   <<: *default
-  database: stocknotes_test
+  database: optolead_test
 
 production:
   <<: *default
-  database: stocknotes_production
-  username: stocknotes
+  database: optolead_production
+  username: optolead
   password: <%= ENV['STOCKNOTES_DATABASE_PASSWORD'] %>
