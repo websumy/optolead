@@ -1,6 +1,7 @@
 class LeadsController < ApplicationController
   def index
-    @leads = current_user.leads
+    @q = current_user.leads.ransack(params[:q])
+    @leads = @q.result.page(params[:page])
   end
 
   def show

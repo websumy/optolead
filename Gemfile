@@ -15,9 +15,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 gem 'twitter-bootstrap-rails'
-
+gem 'kaminari'
+gem 'ransack'
 gem 'dotenv-rails'
-
 gem 'typhoeus'
 
 group :development, :test do
