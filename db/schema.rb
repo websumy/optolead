@@ -11,11 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401175032) do
+ActiveRecord::Schema.define(version: 20150404183239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+
+  create_table "leads", force: :cascade do |t|
+    t.integer  "bitrix_id"
+    t.string   "title"
+    t.string   "state"
+    t.string   "sub_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "page"
+    t.string   "source"
+    t.string   "campaign"
+    t.string   "medium"
+    t.string   "term"
+    t.string   "refid"
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
