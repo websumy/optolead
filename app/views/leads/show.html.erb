@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1><%= @lead.title %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong>ID:</strong></dt>
+  <dd><%= @lead.bitrix_id %></dd>
+  <dt><strong>Статус:</strong></dt>
+  <dd><%= @lead.state %></dd>
+  <dt><strong>Sub id:</strong></dt>
+  <dd><%= @lead.sub_id %></dd>
+  <dt><strong>Имя:</strong></dt>
+  <dd><%= @lead.first_name %></dd>
+  <dt><strong>Фамилия:</strong></dt>
+  <dd><%= @lead.last_name %></dd>
+  <dt><strong>Страница:</strong></dt>
+  <dd><%= @lead.page %></dd>
+  <dt><strong>Источник трафика:</strong></dt>
+  <dd><%= @lead.source %></dd>
+  <dt><strong>Название кампании:</strong></dt>
+  <dd><%= @lead.campaign %></dd>
+  <dt><strong>Объявление:</strong></dt>
+  <dd><%= @lead.medium %></dd>
+  <dt><strong>Ключевое слов:</strong></dt>
+  <dd><%= @lead.term %></dd>
+  <dt><strong>Объявление:</strong></dt>
+  <dd><%= @lead.content %></dd>
+</dl>
+
+<%= link_to 'Назад', leads_path, :class => 'btn btn-default' %>

@@ -16,6 +16,7 @@
 #  name                   :string
 #  created_at             :datetime
 #  updated_at             :datetime
+#  refid                  :string
 #
 # Indexes
 #
@@ -28,4 +29,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :leads, foreign_key: :refid, primary_key: :refid
 end

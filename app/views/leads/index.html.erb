@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h1>Лиды</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <td>Sub id</td>
+      <td>Имя</td>
+      <td>Фамилия</td>
+      <td>Страница</td>
+      <td>Источник трафика</td>
+      <td>Вид трафика</td>
+      <td>Название кампании</td>
+      <td>Объявление</td>
+      <td>Ключевое слово</td>
+      <td>Статус</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @leads.each do |lead| %>
+      <tr>
+        <td><%= link_to lead.bitrix_id, lead %></td>
+        <td><%= lead.sub_id %></td>
+        <td><%= lead.first_name %></td>
+        <td><%= lead.last_name %></td>
+        <td><%= lead.page %></td>
+        <td><%= lead.source %></td>
+        <td><%= lead.medium %></td>
+        <td><%= lead.campaign %></td>
+        <td><%= lead.content %></td>
+        <td><%= lead.term %></td>
+        <td><%= lead.state %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
