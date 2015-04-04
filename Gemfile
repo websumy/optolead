@@ -19,6 +19,7 @@ gem 'kaminari'
 gem 'ransack'
 gem 'dotenv-rails'
 gem 'typhoeus'
+gem 'russian'
 
 group :development, :test do
   gem 'better_errors'
