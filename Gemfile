@@ -20,6 +20,7 @@ gem 'ransack'
 gem 'dotenv-rails'
 gem 'typhoeus'
 gem 'russian'
+gem 'whenever', require: false
 
 group :development, :test do
   gem 'better_errors'
