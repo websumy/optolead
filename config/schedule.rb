@@ -1,5 +1,5 @@
 set :output, '/home/yarivo/www/optolead/current/log/cron.log'
 
-every 2.hours do
+every 30.minutes do
   rake 'bitrix24:get_list'
 end
