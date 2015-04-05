@@ -6,7 +6,7 @@ gem 'rails', '4.2.1'
 gem 'pg'
 
 gem 'devise'
-gem 'cancancan', '~> 1.10'
+gem 'activeadmin', '~> 1.0.0.pre1'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
