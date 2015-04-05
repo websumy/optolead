@@ -11,12 +11,12 @@ role :db,  %w{yarivo@95.213.150.162}
 set :rvm_ruby_version, '2.2.1@optolead'
 set :rvm_type, :user
 
-set :branch, :develop
+set :branch, :master
 
 set :rails_env, 'production'
 
 set :unicorn_rack_env, 'production'
-set :unicorn_config_path, -> { File.join(current_path, 'config', 'unicorn', 'production.rb') }
+set :unicorn_config_path, -> { File.join(current_path, 'config', 'unicorn', 'prod.rb') }
 
 set :deploy_to, '/home/yarivo/www/optolead'
 

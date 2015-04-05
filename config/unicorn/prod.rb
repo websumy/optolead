@@ -12,7 +12,7 @@ stdout_path '/home/yarivo/www/optolead/current/log/unicorn.log'
 
 # Unicorn socket
 #listen "/tmp/unicorn.[app name].sock"
-listen '/tmp/unicorn.yarivo.sock'
+listen '/tmp/unicorn.optolead.sock'
 
 # Number of processes
 # worker_processes 4
