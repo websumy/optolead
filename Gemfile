@@ -27,5 +27,10 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'annotate'
   gem 'letter_opener'
+
+  gem 'capistrano', '~> 3.2.0'
+  gem 'capistrano-rvm'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano3-unicorn'
 end
 
