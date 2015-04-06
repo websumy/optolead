@@ -9,6 +9,8 @@
   <dd><%= @lead.state %></dd>
   <dt><strong>Sub id:</strong></dt>
   <dd><%= @lead.sub_id %></dd>
+  <dt><strong>Ref id:</strong></dt>
+  <dd><%= @lead.refid %></dd>
   <dt><strong>Имя:</strong></dt>
   <dd><%= @lead.first_name %></dd>
   <dt><strong>Фамилия:</strong></dt>
@@ -25,6 +27,8 @@
   <dd><%= @lead.term %></dd>
   <dt><strong>Объявление:</strong></dt>
   <dd><%= @lead.content %></dd>
+  <dt><strong>Дата:</strong></dt>
+  <dd><%= @lead.created_at %></dd>
 </dl>
 
 <%= link_to 'Назад', leads_path, :class => 'btn btn-default' %>
