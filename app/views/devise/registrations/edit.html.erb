@@ -4,6 +4,12 @@
     <%= devise_error_messages! %>
 
     <div class="form-group">
+      <%= f.label :refid, 'Ваш Ref id', class: 'col-sm-2 control-label'  %>
+      <div class="col-sm-3">
+        <%= f.text_field :refid, autofocus: true, disabled: true, class: 'form-control'  %>
+      </div>
+    </div>
+    <div class="form-group">
       <%= f.label :name, 'Ваше имя', class: 'col-sm-2 control-label'  %>
       <div class="col-sm-3">
         <%= f.text_field :name, autofocus: true, class: 'form-control'  %>
