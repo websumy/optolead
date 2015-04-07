@@ -17,6 +17,14 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  refid                  :string
+#  last_name              :string
+#  phone                  :string
+#  group                  :string
+#  company                :string
+#  offline                :string
+#  source                 :string
+#  payment                :string
+#  comment                :text
 #
 # Indexes
 #
