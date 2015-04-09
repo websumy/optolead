@@ -12,11 +12,26 @@ namespace :bitrix24 do
     responce['result'].each do |lead|
       next unless lead['COMMENTS'] =~ /^Страница:/
       old_lead = Lead.find_by_bitrix_id(lead['ID'])
-
-      term, campaign, content, source, medium = nil
-
-      page, refid, phone, name = lead['COMMENTS'].match('Страница: (.*)<br>Дополнительные параметры:<br>id партнера - (.*)<br>телефон клиента - (.*)<br>имя клиента - (.*)').try(:captures).try(:map, &:strip)
-      page, refid, term, campaign, content, source, medium = lead['COMMENTS'].match('Страница: (.*)<br>Дополнительные параметры:<br>utm_refid - (.*)<br>utm_term - (.*)<br>utm_campaign - (.*)<br>utm_content - (.*)<br>utm_source -(.*) <br>utm_medium - (.*)').try(:captures).try(:map, &:strip) unless page
+      results = {}
+      {
+          page: /Страница: (.*?)<br>/,
+          refid: [/id партнера - (.*?)(<br>|$)/, /utm_refid - (.*?)(<br>|$)/],
+          term: /utm_term - (.*?)(<br>|$)/,
+          campaign: /utm_campaign - (.*?)(<br>|$)/,
+          content: /utm_content - (.*?)(<br>|$)/,
+          source: /utm_source - (.*?)(<br>|$)/,
+          medium: /utm_medium - (.*?)(<br>|$)/
+      }.each do |field, reg|
+        if reg.is_a? Array
+          reg.each do |r|
+            search = lead['COMMENTS'].match(r)
+            results[field] = search[1] if search
+          end
+          next
+        end
+         search = lead['COMMENTS'].match(reg)
+         results[field] = search[1] if search
+      end
 
       object = {
           bitrix_id: lead['ID'],
@@ -25,14 +40,7 @@ namespace :bitrix24 do
           last_name: lead['LAST_NAME'],
           state: lead['STATUS_ID'],
           created_at: lead['DATE_CREATE'],
-          page: page,
-          refid: refid,
-          term: term,
-          campaign: campaign,
-          content: content,
-          source: source,
-          medium: medium
-      }
+      }.merge(results)
 
       old_lead ? old_lead.update_attributes(object) : Lead.create(object)
     end
