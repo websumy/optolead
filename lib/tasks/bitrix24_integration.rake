@@ -7,7 +7,7 @@ namespace :bitrix24 do
 
   def get_leads(offset = 0)
     @api ||= Bitrix::API.new
-    responce = @api.make_list_request('crm.lead.list', {}, ['ID', 'TITLE', 'NAME','LAST_NAME', 'COMMENTS', 'STATUS_ID', 'DATE_CREATE',], offset)
+    responce = @api.make_list_request('crm.lead.list', {}, ['ID', 'TITLE', 'NAME','LAST_NAME', 'COMMENTS', 'STATUS_ID', 'DATE_CREATE', 'UF_CRM_1428507587'], offset)
 
     responce['result'].each do |lead|
       next unless lead['COMMENTS'] =~ /^Страница:/
@@ -39,6 +39,7 @@ namespace :bitrix24 do
           first_name: lead['NAME'],
           last_name: lead['LAST_NAME'],
           state: lead['STATUS_ID'],
+          offer: lead['UF_CRM_1428507587'],
           created_at: lead['DATE_CREATE'],
       }.merge(results)
 
