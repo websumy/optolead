@@ -9,7 +9,9 @@ ActiveAdmin.register Lead, as: 'Deal' do
     id_column
     column :bitrix_id
     column :title
-    column :state
+    column :state do |f|
+      f.state_ru
+    end
     column :page
     column :created_at
     actions
