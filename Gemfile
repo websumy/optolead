@@ -21,6 +21,8 @@ gem 'dotenv-rails'
 gem 'typhoeus'
 gem 'russian'
 gem 'whenever', require: false
+gem 'friendly_id'
+gem 'tinymce-rails'
 
 group :development, :test do
   gem 'better_errors'

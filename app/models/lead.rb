@@ -18,6 +18,7 @@
 #  content    :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  offer      :string
 #
 
 class Lead < ActiveRecord::Base

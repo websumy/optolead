@@ -1,0 +1,18 @@
+default:
+  toolbar:
+    - bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | forecolor backcolor | fullscreen
+  plugins:
+    - table fullscreen advlist autolink lists link image charmap hr anchor searchreplace
+    - visualblocks visualchars code fullscreen insertdatetime media nonbreaking table
+    - contextmenu directionality paste textcolor colorpicker textpattern
+
+
+lesson:
+  selector: textarea.lesson-tinymce
+  toolbar:
+    - bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | forecolor backcolor | fullscreen | payLessonButton | smart_link rm_smart_link | upload_video
+  plugins:
+    - table fullscreen advlist autolink lists link image charmap hr anchor searchreplace
+    - visualblocks visualchars code fullscreen insertdatetime media nonbreaking table
+    - contextmenu directionality paste textcolor colorpicker textpattern pay_lesson noneditable smart_link upload_video
+  height : 400

@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :leads, only: [:index, :show]
+
+  get '/:page_id', to: 'pages#show', as: :page
+
 end
