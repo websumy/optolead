@@ -1,3 +1,21 @@
+GIT
+  remote: git://github.com/Rezonans/jwt_authentication.git
+  revision: e0ec5e2c51566ed38a667636852d8a9322d03d83
+  specs:
+    jwt_authentication (0.0.5)
+      actionmailer (>= 3.2.6, < 5)
+      actionpack (>= 3.2.6, < 5)
+      devise (~> 3.2)
+      jwt (~> 1.2.1)
+
+GIT
+  remote: git://github.com/rails-api/active_model_serializers.git
+  revision: 8d31f7ee8c0ea3ed83ab871765f1444291278b41
+  branch: 0-8-stable
+  specs:
+    active_model_serializers (0.8.3)
+      activemodel (>= 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -132,6 +150,7 @@ GEM
     jquery-ui-rails (5.0.3)
       railties (>= 3.2.16)
     json (1.8.2)
+    jwt (1.2.1)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -173,6 +192,9 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.1)
       sprockets-rails
+    rails-api (0.4.0)
+      actionpack (>= 3.2.11)
+      railties (>= 3.2.11)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.6)
@@ -250,6 +272,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers!
   activeadmin (~> 1.0.0.pre1)
   annotate
   better_errors
@@ -263,11 +286,13 @@ DEPENDENCIES
   dotenv-rails
   friendly_id
   jquery-rails
+  jwt_authentication!
   kaminari
   letter_opener
   pg
   quiet_assets
   rails (= 4.2.1)
+  rails-api
   ransack
   russian
   sass-rails (~> 5.0)

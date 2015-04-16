@@ -3,9 +3,14 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :users
+
   as :user do
     get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
     put 'users' => 'devise/registrations#update', :as => 'user_registration'
+  end
+
+  devise_scope :user do
+    post 'api/login', to: 'jwt_authentication/sessions#create'
   end
 
   root 'leads#index'
@@ -16,6 +21,10 @@ Rails.application.routes.draw do
   end
 
   resources :leads, only: [:index, :show]
+
+  namespace :api do
+    resources :leads, only: [:index, :show]
+  end
 
   get '/:page_id', to: 'pages#show', as: :page
 
