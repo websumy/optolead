@@ -2,7 +2,8 @@ ActiveAdmin.register Lead, as: 'Deal' do
   menu label: 'Лиды'
 
   permit_params :bitrix_id, :title, :state, :sub_id, :first_name, :last_name,
-                :page, :source, :campaign, :medium, :term, :refid, :content, :offer
+                :page, :source, :campaign, :medium, :term, :refid, :content, :offer,
+                :geo, :age, :gender, :placement
 
   index do
     selectable_column

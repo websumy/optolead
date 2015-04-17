@@ -19,6 +19,10 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  offer      :string
+#  geo        :string
+#  age        :string
+#  gender     :string
+#  placement  :string
 #
 
 class Lead < ActiveRecord::Base

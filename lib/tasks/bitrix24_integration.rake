@@ -20,7 +20,11 @@ namespace :bitrix24 do
           campaign: /utm_campaign - (.*?)(<br>|$)/,
           content: /utm_content - (.*?)(<br>|$)/,
           source: /utm_source - (.*?)(<br>|$)/,
-          medium: /utm_medium - (.*?)(<br>|$)/
+          medium: /utm_medium - (.*?)(<br>|$)/,
+          geo: /utm_geo - (.*?)(<br>|$)/,
+          age: /utm_age - (.*?)(<br>|$)/,
+          gender: /utm_gender - (.*?)(<br>|$)/,
+          placement: /utm_placement - (.*?)(<br>|$)/
       }.each do |field, reg|
         if reg.is_a? Array
           reg.each do |r|
