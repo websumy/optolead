@@ -26,6 +26,9 @@
 #
 
 class Lead < ActiveRecord::Base
+  after_create :send_post_back, if: 'user.post_back_url'
+  belongs_to :user, foreign_key: :refid
+
   STATE = { 'NEW' => 'Не обработан', 'ASSIGNED' => 'Назначен ответственный',
             'DETAILS' => 'Уточнение информации', 'CANNOT_CONTACT' => 'Не удалось связаться',
             'IN_PROCESS' => 'В обработке', 'ON_HOLD' => 'Обработка приостановлена',
@@ -34,5 +37,11 @@ class Lead < ActiveRecord::Base
 
   def state_ru
     STATE[state]
+  end
+
+  private
+
+  def send_post_back
+    LeadWorker.perform_async(user.post_back_url, attributes)
   end
 end

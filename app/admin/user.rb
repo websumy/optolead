@@ -2,7 +2,7 @@ ActiveAdmin.register User do
   menu label: 'Партнеры'
 
   permit_params :email, :name, :last_name, :phone, :group, :company, :offline,
-                :source, :payment, :comment, :refid, :password, :password_confirmation
+                :source, :payment, :comment, :refid, :password, :password_confirmation, :post_back_url
 
   controller do
     def update
@@ -39,6 +39,7 @@ ActiveAdmin.register User do
       f.input :source, label: 'Откуда вы собираетесь поставлять трафик?'
       f.input :payment, label: 'Каким способом Вам удобнее получать деньги?'
       f.input :comment, label: 'Комментарии'
+      f.input :post_back_url, label: 'post_back_url'
 
       f.input :email
       f.input :password
