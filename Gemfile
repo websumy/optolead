@@ -27,6 +27,7 @@ gem 'tinymce-rails'
 gem 'rails-api'
 gem 'jwt_authentication', github: 'Rezonans/jwt_authentication'
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-8-stable'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'better_errors'
