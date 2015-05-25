@@ -23,6 +23,7 @@
 #  age        :string
 #  gender     :string
 #  placement  :string
+#  phone      :string
 #
 
 class LeadSerializer < ActiveModel::Serializer

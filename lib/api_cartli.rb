@@ -6,7 +6,7 @@ class ApiCartli
     @token = token
   end
 
-  def send_request(action, params)
+  def send_request(action, params = [])
     request = prepare_request(action, params)
 
     uri = URI(API_URL + "?token=#{@token}")
