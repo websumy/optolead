@@ -7,3 +7,7 @@ end
 every 15.minutes do
   rake 'bitrix24:get_updated_leads'
 end
+
+every 20.minutes do
+  rake 'leads:synchronize'
+end

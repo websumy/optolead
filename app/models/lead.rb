@@ -23,10 +23,12 @@
 #  age        :string
 #  gender     :string
 #  placement  :string
+#  phone      :string
 #
 
 class Lead < ActiveRecord::Base
   after_create :send_post_back, if: 'user.post_back_url'
+  after_create :send_to_сartli
   belongs_to :user, foreign_key: :refid
 
   STATE = { 'NEW' => 'Не обработан', 'ASSIGNED' => 'Назначен ответственный',
@@ -40,6 +42,10 @@ class Lead < ActiveRecord::Base
   end
 
   private
+
+  def send_to_сartli
+    LeadApiWorker.perform_async(attributes)
+  end
 
   def send_post_back
     LeadWorker.perform_async(user.post_back_url, attributes)
