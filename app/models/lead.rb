@@ -44,10 +44,10 @@ class Lead < ActiveRecord::Base
   private
 
   def send_to_сartli
-    LeadApiWorker.perform_async(attributes)
+    CallCenterWorker.perform_async(attributes)
   end
 
   def send_post_back
-    LeadWorker.perform_async(user.post_back_url, attributes)
+    PostBackWorker.perform_async(user.post_back_url, attributes)
   end
 end

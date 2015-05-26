@@ -1,4 +1,4 @@
-class LeadApiWorker
+class CallCenterWorker
   include Sidekiq::Worker
   sidekiq_options retry: 3
 

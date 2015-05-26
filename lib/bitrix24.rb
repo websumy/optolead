@@ -12,6 +12,10 @@ class Bitrix24
     get_leads(filter, responce['next']) if responce['next']
   end
 
+  def update_lead(id, fields)
+    @api.make_update_request('crm_lead_update', id, fields)
+  end
+
   private
 
   def create_or_update_leads(responce)

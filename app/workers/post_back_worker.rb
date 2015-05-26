@@ -1,4 +1,4 @@
-class LeadWorker
+class PostBackWorker
   include Sidekiq::Worker
   sidekiq_options retry: 3
 
