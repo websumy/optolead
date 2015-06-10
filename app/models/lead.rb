@@ -27,15 +27,20 @@
 #
 
 class Lead < ActiveRecord::Base
-  after_create :send_post_back, if: 'user.post_back_url'
+  after_create :send_post_back, if: 'user && user.post_back_url'
   after_create :send_to_сartli
-  belongs_to :user, foreign_key: :refid
 
-  STATE = { 'NEW' => 'Не обработан', 'ASSIGNED' => 'Назначен ответственный',
+  STATE = { 'NEW' => 'Не обработан', 'ASSIGNED' => 'Назначен менеджер',
             'DETAILS' => 'Уточнение информации', 'CANNOT_CONTACT' => 'Не удалось связаться',
-            'IN_PROCESS' => 'В обработке', 'ON_HOLD' => 'Обработка приостановлена',
-            'RESTORED' => 'Восстановлен', 'JUNK' => 'Некачественный лид', '1' => 'Сверка',
-            '2' => 'Оплачен Заказчиком', '3' => 'Оплачен Партнеру' }
+            'IN_PROCESS' => 'Назначена встреча', 'ON_HOLD' => 'Обработка приостановлена',
+            'RESTORED' => 'Восстановлен', 'JUNK' => 'Отказ', '1' => 'Перезвонить через месяц',
+            '2' => 'Передумал', '3' => 'Нет денег', '4' => 'Не устраивают условия',
+            '5' => 'Не подходит география', '6' => 'Просто интересовался',
+            '7' => 'Некачественный Лид', '8' => 'Перезвонить', '9' => 'Оформлен заказ' }
+
+  def user
+    @user ||= User.find_by_refid(refid)
+  end
 
   def state_ru
     STATE[state]

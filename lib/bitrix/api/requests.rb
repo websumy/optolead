@@ -15,7 +15,7 @@ module Bitrix
         req = Typhoeus::Request.new(
             REST_URI + method,
             method: :post,
-            params: fields.merge!(auth: @access_token, id: id)
+            params: { auth: @access_token, id: id }.merge!(fields: fields)
         )
         req.run
         JSON.parse req.response.body

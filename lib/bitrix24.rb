@@ -12,8 +12,12 @@ class Bitrix24
     get_leads(filter, responce['next']) if responce['next']
   end
 
+  def get_lead_fields
+    @api.make_get_request('crm.lead.fields', 0)
+  end
+
   def update_lead(id, fields)
-    @api.make_update_request('crm_lead_update', id, fields)
+    @api.make_update_request('crm.lead.update', id, fields)
   end
 
   private
@@ -67,7 +71,8 @@ class Bitrix24
         geo: /utm_geo - (.*?)(<br>|$)/,
         age: /utm_age - (.*?)(<br>|$)/,
         gender: /utm_gender - (.*?)(<br>|$)/,
-        placement: /utm_placement - (.*?)(<br>|$)/
+        placement: /utm_placement - (.*?)(<br>|$)/,
+        phone: [/телефон клиента - (.*?)(<br>|$)/, /ваш телефон - (.*?)(<br>|$)/]
     }
   end
 end

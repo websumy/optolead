@@ -43,5 +43,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
 
   has_many :leads, foreign_key: :refid, primary_key: :refid
-  validates :post_back_url, format: URI::regexp(%w(http https))
+  validates :post_back_url, format: URI::regexp(%w(http https)), allow_blank: true
 end
