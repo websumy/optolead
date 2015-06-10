@@ -28,7 +28,7 @@
 
 class Lead < ActiveRecord::Base
   after_create :send_post_back, if: 'user && user.post_back_url'
-  after_create :send_to_сartli
+  after_create :send_to_cartli
 
   STATE = { 'NEW' => 'Не обработан', 'ASSIGNED' => 'Назначен менеджер',
             'DETAILS' => 'Уточнение информации', 'CANNOT_CONTACT' => 'Не удалось связаться',
@@ -48,7 +48,7 @@ class Lead < ActiveRecord::Base
 
   private
 
-  def send_to_сartli
+  def send_to_cartli
     CallCenterWorker.perform_async(attributes)
   end
 
