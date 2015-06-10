@@ -40,6 +40,7 @@ group :development, :test do
   gem 'capistrano-rvm'
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano3-unicorn'
+  gem 'capistrano-sidekiq'
 end
 
 gem 'unicorn', group: :production
