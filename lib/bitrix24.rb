@@ -54,7 +54,7 @@ class Bitrix24
         first_name: lead['NAME'],
         last_name: lead['LAST_NAME'],
         state: lead['STATUS_ID'],
-        phone: lead['PHONE'],
+        phone: lead['PHONE'].try(:first).try(:[],'VALUE'),
         offer: lead['UF_CRM_1428507587'],
         created_at: lead['DATE_CREATE'],
     }
