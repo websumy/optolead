@@ -1,6 +1,6 @@
 class Bitrix24
 
-  FIELDS = %w(ID TITLE NAME LAST_NAME COMMENTS STATUS_ID DATE_CREATE DATE_MODIFY UF_CRM_1428507587)
+  FIELDS = %w(ID TITLE NAME LAST_NAME PHONE COMMENTS STATUS_ID DATE_CREATE DATE_MODIFY UF_CRM_1428507587)
 
   def initialize
     @api = Bitrix::API.new
@@ -54,6 +54,7 @@ class Bitrix24
         first_name: lead['NAME'],
         last_name: lead['LAST_NAME'],
         state: lead['STATUS_ID'],
+        phone: lead['PHONE'],
         offer: lead['UF_CRM_1428507587'],
         created_at: lead['DATE_CREATE'],
     }
@@ -71,8 +72,7 @@ class Bitrix24
         geo: /utm_geo - (.*?)(<br>|$)/,
         age: /utm_age - (.*?)(<br>|$)/,
         gender: /utm_gender - (.*?)(<br>|$)/,
-        placement: /utm_placement - (.*?)(<br>|$)/,
-        phone: [/телефон клиента - (.*?)(<br>|$)/, /ваш телефон - (.*?)(<br>|$)/]
+        placement: /utm_placement - (.*?)(<br>|$)/
     }
   end
 end
