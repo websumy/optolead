@@ -27,6 +27,9 @@
 #
 
 class Lead < ActiveRecord::Base
+  has_one :call_center_answer
+  before_create :build_default_call_center_answer
+
   after_create :send_post_back, if: 'user && user.post_back_url'
   after_create :send_to_cartli
 
@@ -47,6 +50,11 @@ class Lead < ActiveRecord::Base
   end
 
   private
+
+  def build_default_call_center_answer
+    build_call_center_answer
+    true
+  end
 
   def send_to_cartli
     CallCenterWorker.perform_async(attributes) if page =~ /EL[0-9]+/

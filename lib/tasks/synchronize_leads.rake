@@ -28,8 +28,12 @@ namespace :leads do
         end
 
         if bitrix_status
+          answer = lead.call_center_answer
+          attrs = orders['data'][lead.id.to_s].select{ |k,_| k.in?(answer.attribute_names - ['id']) }
+          attrs_s = attrs.map{|k,v| "#{k}=#{v}"}.join('<br>')
           lead.update_attributes(state: bitrix_status)
-          bitrix24.update_lead(lead.bitrix_id, { 'STATUS_ID' => bitrix_status }.merge(assigned))
+          answer.update(attrs)
+          bitrix24.update_lead(lead.bitrix_id, { 'STATUS_ID' => bitrix_status, 'UF_CRM_1434446496' => attrs_s }.merge(assigned))
         end
       end
     end
