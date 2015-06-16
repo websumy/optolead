@@ -49,7 +49,7 @@ class Lead < ActiveRecord::Base
   private
 
   def send_to_cartli
-    CallCenterWorker.perform_async(attributes)
+    CallCenterWorker.perform_async(attributes) if page =~ /EL[0-9]+/
   end
 
   def send_post_back
